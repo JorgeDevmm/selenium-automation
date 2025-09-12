@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    //TestNG
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation("org.testng:testng:7.11.0")
+
+    //selenium + WebDriverManager
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation("org.seleniumhq.selenium:selenium-java:4.35.0")
+    // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+    implementation("io.github.bonigarcia:webdrivermanager:6.3.1")
+
+    //geckodriver
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver
+    implementation("org.seleniumhq.selenium:selenium-firefox-driver:4.35.0")
+
+
+
+    //Cucumber con TestNG
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+    implementation("io.cucumber:cucumber-java:7.28.2")
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-testng
+    implementation("io.cucumber:cucumber-testng:7.28.2")
+
+
+
+
+
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+    //testImplementation("io.cucumber:cucumber-junit:7.28.2")
+
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit-platform-engine
+    //testImplementation("io.cucumber:cucumber-junit-platform-engine:7.28.2")
+
+
+
+
+
+
+}
+
+test {
+    //useJUnitPlatform()
+    useTestNG()
+}
