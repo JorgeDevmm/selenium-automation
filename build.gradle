@@ -36,18 +36,11 @@ dependencies {
     implementation("io.cucumber:cucumber-testng:7.28.2")
 
 
-
-
-
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
     //testImplementation("io.cucumber:cucumber-junit:7.28.2")
 
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit-platform-engine
     //testImplementation("io.cucumber:cucumber-junit-platform-engine:7.28.2")
-
-
-
-
 
 
 }

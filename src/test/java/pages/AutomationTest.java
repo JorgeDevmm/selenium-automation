@@ -14,14 +14,7 @@ public class AutomationTest {
 
     private WebDriver driver;
 
-    public WebDriver getDriver() {
-        System.setProperty("webdriver.gecko.driver", rutaDriver);
-        FirefoxOptions options = new FirefoxOptions();
-        options.setBinary(rutaFirefox);
-
-        return new FirefoxDriver(options);//igual al chrome driver
-    }
-
+//    Utilizando WebDriverManager, driver dinamico
 //    @BeforeMethod
 //    public void setUp() {
 //        //Inicializa el WebDriver para firefox -> cambiar chromedriver
@@ -31,12 +24,16 @@ public class AutomationTest {
 
     @BeforeMethod
     public void setUp() {
-        driver = getDriver();
+        //Utilizando driver de firefox en duro
+        System.setProperty("webdriver.gecko.driver", rutaDriver);
+        FirefoxOptions options = new FirefoxOptions();
+        options.setBinary(rutaFirefox);
+
+        driver = new FirefoxDriver(options);//igual al chrome driver
     }
 
     @Test
     public void ingresarPagina() {
-
         driver.get("https://www.aluracursos.com/");
     }
 
