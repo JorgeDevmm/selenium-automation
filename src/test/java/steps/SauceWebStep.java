@@ -2,7 +2,7 @@ package steps;
 
 import pages.PaginaPrincipal;
 
-public class CodigoWebStep {
+public class SauceWebStep {
 
     PaginaPrincipal paginaPrincipal = new PaginaPrincipal();
 

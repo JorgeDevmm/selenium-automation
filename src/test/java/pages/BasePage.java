@@ -64,4 +64,8 @@ public class BasePage {
     public void clickElement(String locator) {
         Find(locator).click();
     }
+
+//    public void write(String locator){
+//        Find(locator).
+//    }
 }

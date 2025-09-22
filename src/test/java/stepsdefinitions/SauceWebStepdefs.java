@@ -2,12 +2,12 @@ package stepsdefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
-import steps.CodigoWebStep;
+import steps.SauceWebStep;
 
 
-public class CodigoWebStepdefs {
+public class SauceWebStepdefs {
 
-    CodigoWebStep codigoWebStep = new CodigoWebStep();
+    SauceWebStep sauceWebStep = new SauceWebStep();
 
     /**
      * Obtener de la DataTable table, la fila de la posición indicada
@@ -15,6 +15,6 @@ public class CodigoWebStepdefs {
     @Given("I navigate to url")
     public void iNavigateToUrl(DataTable table) {
         String url = table.asMaps(String.class, String.class).get(0).get("url");
-        codigoWebStep.navigateToHomePage(url);
+        sauceWebStep.navigateToHomePage(url);
     }
 }

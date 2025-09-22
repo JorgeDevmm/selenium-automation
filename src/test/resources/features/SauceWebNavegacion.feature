@@ -8,5 +8,5 @@ Feature: Navigate bar
   Scenario: I can access the subpages through the navigation ba
     Given I navigate to url
       | url                               |
-      | https://codigoconjuan.com/ |
+      | https://www.saucedemo.com/ |
 
