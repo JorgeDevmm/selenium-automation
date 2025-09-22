@@ -13,6 +13,7 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
+
     //TestNG
     // https://mvnrepository.com/artifact/org.testng/testng
     testImplementation("org.testng:testng:7.11.0")
@@ -28,31 +29,28 @@ dependencies {
     implementation("org.seleniumhq.selenium:selenium-firefox-driver:4.35.0")
 
 
-    //Cucumber con TestNG
+
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
     implementation("io.cucumber:cucumber-java:7.28.2")
-    // https://mvnrepository.com/artifact/io.cucumber/cucumber-testng
-    implementation("io.cucumber:cucumber-testng:7.28.2")
 
+    //Cucumber con TestNG
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-testng
+    //implementation("io.cucumber:cucumber-testng:7.28.2")
+
+
+    //JUnit 4
+    // https://mvnrepository.com/artifact/junit/junit
+    testImplementation("junit:junit:4.13.2")
 
     //Cucumber con JUnit 4
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
-    //testImplementation("io.cucumber:cucumber-junit:7.28.2") // JUnit 4
-
-    //Cucumber con JUnit 5
-    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit-platform-engine
-    testImplementation("io.cucumber:cucumber-junit-platform-engine:7.28.2") // JUnit 5
-    // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite-api
-    testImplementation("org.junit.platform:junit-platform-suite-api:1.10.0")
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("io.cucumber:cucumber-junit:7.28.2") // JUnit 4
 
 
 }
 
 test {
-    useJUnitPlatform()
-    systemProperty("cucumber.filter.tags", System.getProperty("cucumber.filter.tags"))
+    systemProperty"cucumber.options",System.getProperty("cucumber.options")
 
     //useTestNG()
 }

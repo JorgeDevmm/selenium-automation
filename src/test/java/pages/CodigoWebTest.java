@@ -1,16 +1,12 @@
 package pages;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AutomationTest {
+public class CodigoWebTest {
 
     private WebDriver driver;
 
@@ -18,7 +14,7 @@ public class AutomationTest {
     @Test
     public void test1() {
         //Navega a la página web
-        driver.get("https://www.aluracursos.com/");
+        driver.get("https://www.freerangetesters.com/");
         //Encuentra un elemento utilizando su css selector
         WebElement webElement = driver.findElement(By.cssSelector("header>div>nav>.header__nav--ctas>.header__nav--ctas-entrar"));
         webElement.click();
@@ -27,7 +23,7 @@ public class AutomationTest {
     @Test
     public void test2() {
         //Navega a la página web
-        driver.get("https://www.aluracursos.com/");
+        driver.get("https://www.freerangetesters.com/");
         //Encuentra un elemento utilizando su css selector
         WebElement webElement = driver.findElement(By.cssSelector("header>div>nav>.header__nav--ctas>.header__nav--ctas-entrar"));
         webElement.click();
@@ -36,7 +32,7 @@ public class AutomationTest {
     @Test
     public void test3() {
         //Navega a la página web
-        driver.get("https://www.aluracursos.com/");
+        driver.get("https://www.freerangetesters.com/");
         //Encuentra un elemento utilizando su css selector
         WebElement webElement = driver.findElement(By.cssSelector("header>div>nav>.header__nav--ctas>.header__nav--ctas-entrar"));
         webElement.click();
