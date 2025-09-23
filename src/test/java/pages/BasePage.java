@@ -4,10 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import core.DriverFactory;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePage {
 
@@ -46,26 +48,67 @@ public class BasePage {
         BasePage.driver = driver;
     }
 
-
-    //Método estático para navegar a una URL.
+    /**
+     * Navegación a una URL especifica
+     */
     public static void navigateTo(String url) {
         System.out.println("[INFO] We found the URL.");
         driver.get(url);
     }
 
+    /**
+     * Cerrar el driver
+     */
     public static void closeBrowser() {
         driver.quit();
     }
 
+    /**
+     * espera explicita de la presencia de un WebElment
+     */
     private WebElement Find(String locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
 
+    /**
+     * Click a un elemento
+     */
     public void clickElement(String locator) {
         Find(locator).click();
     }
 
-//    public void write(String locator){
-//        Find(locator).
-//    }
+    /**
+     * Escritura en campos
+     */
+    public void write(String locator, String keysToSend) {
+        Find(locator).clear();//limpieza previa al campo
+        Find(locator).sendKeys(keysToSend);
+    }
+
+    /**
+     * Buscar en Select por valor
+     */
+    public void selectFromDropdownByValue(String locator, String value) {
+        Select dropdown = new Select(Find(locator));
+        dropdown.selectByValue(value);
+    }
+
+    /**
+     * Buscar en Select por Index
+     */
+    public void selectFromDropdownByIndex(String locator, Integer index) {
+        Select dropdown = new Select(Find(locator));
+        dropdown.selectByIndex(index);
+    }
+
+    /**
+     * calcula la cantidad de elementos del select, obteniendolo con getOptions
+     */
+    public int dropdownSize(String locator) {
+        Select dropdown = new Select(Find(locator));
+        List<WebElement> dropdownOptions = dropdown.getOptions();
+
+        return dropdownOptions.size();
+    }
+
 }

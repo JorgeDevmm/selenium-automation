@@ -17,4 +17,6 @@ public class SauceWebStepdefs {
         String url = table.asMaps(String.class, String.class).get(0).get("url");
         sauceWebStep.navigateToHomePage(url);
     }
+
+
 }
