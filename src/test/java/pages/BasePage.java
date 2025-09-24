@@ -66,21 +66,27 @@ public class BasePage {
     /**
      * espera explicita de la presencia de un WebElment
      */
-    private WebElement Find(String locator) {
-        return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
+    private WebElement Find(By locator) {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+
+    public void checkElementOnScreen(By locator, String titulo){
+        if(Find(locator).getText().equals(titulo)){
+            System.out.println("[Info] la visualización del elemento coincide con el " + titulo);
+        }
     }
 
     /**
      * Click a un elemento
      */
-    public void clickElement(String locator) {
+    public void clickElement(By locator) {
         Find(locator).click();
     }
 
     /**
      * Escritura en campos
      */
-    public void write(String locator, String keysToSend) {
+    public void write(By locator, String keysToSend) {
         Find(locator).clear();//limpieza previa al campo
         Find(locator).sendKeys(keysToSend);
     }
@@ -88,7 +94,7 @@ public class BasePage {
     /**
      * Buscar en Select por valor
      */
-    public void selectFromDropdownByValue(String locator, String value) {
+    public void selectFromDropdownByValue(By locator, String value) {
         Select dropdown = new Select(Find(locator));
         dropdown.selectByValue(value);
     }
@@ -96,7 +102,7 @@ public class BasePage {
     /**
      * Buscar en Select por Index
      */
-    public void selectFromDropdownByIndex(String locator, Integer index) {
+    public void selectFromDropdownByIndex(By locator, Integer index) {
         Select dropdown = new Select(Find(locator));
         dropdown.selectByIndex(index);
     }
@@ -104,7 +110,7 @@ public class BasePage {
     /**
      * calcula la cantidad de elementos del select, obteniendolo con getOptions
      */
-    public int dropdownSize(String locator) {
+    public int dropdownSize(By locator) {
         Select dropdown = new Select(Find(locator));
         List<WebElement> dropdownOptions = dropdown.getOptions();
 

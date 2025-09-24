@@ -15,9 +15,23 @@ public class LoginWebStep {
 
     public void ingresarCredenciales(List<Map<String, String>> listaCredenciales) {
 
-        for(Map<String,String> fila : listaCredenciales){
+        for (Map<String, String> fila : listaCredenciales) {
+            String username = fila.get("Username");
+            String password = fila.get("Password");
 
+            loginPage.escribirUsername(username);
+            loginPage.escribirPassword(password);
         }
 
     }
+
+    public void clickEnBotonLogin() {
+        loginPage.clickBotonLogin();
+    }
+
+    public void visualizacionDelTituloDeLaPaginaPrincipal(String titulo){
+        loginPage.visualizarPaginaPrincipal(titulo);
+    }
+
+
 }

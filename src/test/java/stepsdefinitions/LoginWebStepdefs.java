@@ -1,7 +1,9 @@
 package stepsdefinitions;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import steps.LoginWebStep;
 
@@ -23,5 +25,15 @@ public class LoginWebStepdefs {
         List<Map<String, String>> listaCredenciales = dataTable.asMaps();
 
         loginWebStep.ingresarCredenciales(listaCredenciales);
+    }
+
+    @And("Seleccionamos el botón Login")
+    public void seleccionamosElBotónLogin() {
+        loginWebStep.clickEnBotonLogin();
+    }
+
+    @Then("Visualizamos el título {string} en la página principal")
+    public void visualizamosElTítuloEnLaPáginaPrincipal(String titulo) {
+        loginWebStep.visualizacionDelTituloDeLaPaginaPrincipal(titulo);
     }
 }
