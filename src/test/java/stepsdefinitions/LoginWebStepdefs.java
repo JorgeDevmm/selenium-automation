@@ -20,11 +20,11 @@ public class LoginWebStepdefs {
     }
 
     @When("Ingresamos las credenciales")
-    public void ingresamosLasCredenciales(DataTable dataTable) {
+    public void enterCredentials(DataTable dataTable) {
         //Extrame en una List que contiene un Map de tipo String
         List<Map<String, String>> listaCredenciales = dataTable.asMaps();
 
-        loginWebStep.ingresarCredenciales(listaCredenciales);
+        loginWebStep.inputCredentials(listaCredenciales);
     }
 
     @And("Seleccionamos el botón Login")
@@ -33,7 +33,7 @@ public class LoginWebStepdefs {
     }
 
     @Then("Visualizamos el título {string} en la página principal")
-    public void visualizamosElTítuloEnLaPáginaPrincipal(String titulo) {
+    public void visualizamosElTituloEnLaPaginaPrincipal(String titulo) {
         loginWebStep.visualizacionDelTituloDeLaPaginaPrincipal(titulo);
     }
 }

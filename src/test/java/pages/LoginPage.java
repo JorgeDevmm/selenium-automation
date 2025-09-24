@@ -24,11 +24,11 @@ public class LoginPage extends BasePage {
         navigateTo(url);
     }
 
-    public void escribirUsername(String username) {
+    public void typeUsername(String username) {
         write(inputUsername, username);
     }
 
-    public void escribirPassword(String password) {
+    public void typePassword(String password) {
         write(inputPassword, password);
     }
 
@@ -37,6 +37,6 @@ public class LoginPage extends BasePage {
     }
 
     public void visualizarPaginaPrincipal(String titulo) {
-        checkElementOnScreen(screenTitle, titulo);
+        checkTitleElementOnScreen(screenTitle, titulo);
     }
 }

@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,6 +11,7 @@ import core.DriverFactory;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class BasePage {
 
@@ -60,19 +62,51 @@ public class BasePage {
      * Cerrar el driver
      */
     public static void closeBrowser() {
+        System.out.println("[INFO] Close driver.");
         driver.quit();
     }
 
     /**
-     * espera explicita de la presencia de un WebElment
+     * Devuelve un WebElement con una espera explicita si un localizador esta presente
      */
     private WebElement Find(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+
     }
 
-    public void checkElementOnScreen(By locator, String titulo){
-        if(Find(locator).getText().equals(titulo)){
-            System.out.println("[Info] la visualización del elemento coincide con el " + titulo);
+    /**
+     * Devuelve un booleano si un webElemento esta presente
+     */
+    public boolean isElementPresent(By locator) {
+        try {
+            Find(locator);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Validar elemento visible en el DOM
+     */
+
+    public boolean isElementVisible(By locator) {
+        try {
+            WebElement elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            System.out.println("[INFO] El elemento esta visible en la pantalla" + locator);
+            return elemento.isDisplayed();
+        } catch (TimeoutException e) {
+            System.out.println("[WARN] El elemento no está visible en pantalla: " + locator);
+            return false;
+        }
+    }
+
+    /**
+     * validamos que el valor de texto de la ubicación del localizador coincida con el titulo del argumento
+     */
+    public void checkTitleElementOnScreen(By locator, String titulo) {
+        if (Find(locator).getText().equals(titulo)) {
+            System.out.println("[Info] The display of the title matches the element to be validated with the name '" + titulo + "'. ");
         }
     }
 

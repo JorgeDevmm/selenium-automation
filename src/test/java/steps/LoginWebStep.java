@@ -13,14 +13,14 @@ public class LoginWebStep {
         loginPage.openUrl(url);
     }
 
-    public void ingresarCredenciales(List<Map<String, String>> listaCredenciales) {
+    public void inputCredentials(List<Map<String, String>> listaCredenciales) {
 
         for (Map<String, String> fila : listaCredenciales) {
             String username = fila.get("Username");
             String password = fila.get("Password");
 
-            loginPage.escribirUsername(username);
-            loginPage.escribirPassword(password);
+            loginPage.typeUsername(username);
+            loginPage.typePassword(password);
         }
 
     }
