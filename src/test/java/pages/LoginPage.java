@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 public class LoginPage extends BasePage {
 
 
+    //constructor
     public LoginPage() {
         super(driver);
     }

@@ -6,8 +6,6 @@ public class PaginaPrincipal extends BasePage {
     /**
      * Locator
      */
-
-
     public PaginaPrincipal() {
         super(driver);
     }
