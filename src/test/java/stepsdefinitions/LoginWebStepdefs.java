@@ -14,26 +14,34 @@ public class LoginWebStepdefs {
 
     LoginWebStep loginWebStep = new LoginWebStep();
 
-    @Given("Navegamos a la url {string}")
+    @Given("I navigate to the URL {string}")
     public void iNavigateToUrl(String url) {
         loginWebStep.navigateToHomePage(url);
     }
 
-    @When("Ingresamos las credenciales")
-    public void enterCredentials(DataTable dataTable) {
-        //Extrame en una List que contiene un Map de tipo String
-        List<Map<String, String>> listaCredenciales = dataTable.asMaps();
+//    @When("Ingresamos las credenciales")
+//    public void enterCredentials(DataTable dataTable) {
+//        //Extrame en una List que contiene un Map de tipo String
+//        List<Map<String, String>> listaCredenciales = dataTable.asMaps();
+//
+//        loginWebStep.inputCredentials(listaCredenciales);
+//    }
 
-        loginWebStep.inputCredentials(listaCredenciales);
+    @When("I enter the credentials {string} and {string}")
+    public void enterUsernameAndPassword(String username, String password) {
+        System.out.println("[VALIDACIÓN]");
+        loginWebStep.inputCredentials(username, password);
     }
 
-    @And("Seleccionamos el botón Login")
-    public void seleccionamosElBotónLogin() {
+    @And("I click the Login button")
+    public void selectLoginButton() {
         loginWebStep.clickEnBotonLogin();
     }
 
-    @Then("Visualizamos el título {string} en la página principal")
-    public void visualizamosElTituloEnLaPaginaPrincipal(String titulo) {
-        loginWebStep.visualizacionDelTituloDeLaPaginaPrincipal(titulo);
+    @Then("I should see the title {string} on the home page")
+    public void viewTitleOnHomePage(String title) {
+        loginWebStep.verifyTitleOnHomePage(title);
     }
+
+
 }

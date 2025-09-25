@@ -93,10 +93,10 @@ public class BasePage {
     public boolean isElementVisible(By locator) {
         try {
             WebElement elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-            System.out.println("[INFO] El elemento esta visible en la pantalla" + locator);
+            System.out.println("[INFO] The element is visible on the screen" + locator);
             return elemento.isDisplayed();
         } catch (TimeoutException e) {
-            System.out.println("[WARN] El elemento no está visible en pantalla: " + locator);
+            System.out.println("[WARN] The element is not visible on the screen: " + locator);
             return false;
         }
     }
