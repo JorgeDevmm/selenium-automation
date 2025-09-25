@@ -1,10 +1,11 @@
-Feature: Acceso a la web saucedemo
+Feature: Saucedemo Website Login
 
   @Login
-  Scenario: Login exitoso
-    Given Navegamos a la url "https://www.saucedemo.com/"
-    When Ingresamos las credenciales
-      | Username      | Password     |
-      | standard_user | secret_sauce |
-    And Seleccionamos el botón Login
-    Then Visualizamos el título "Products" en la página principal
+  Scenario Outline: Successful Login
+    Given I navigate to the URL "https://www.saucedemo.com/"
+    When I enter the credentials <Username> and <Password>
+    And I click the Login button
+    Then I should see the title "Products" on the home page
+    Examples:
+      | Username        | Password       |
+      | "standard_user" | "secret_sauce" |

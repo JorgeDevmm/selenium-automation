@@ -36,7 +36,7 @@ public class LoginPage extends BasePage {
         clickElement(btnLogin);
     }
 
-    public void visualizarPaginaPrincipal(String titulo) {
-        checkTitleElementOnScreen(screenTitle, titulo);
+    public void viewHomePage(String title) {
+        checkTitleElementOnScreen(screenTitle, title);
     }
 }

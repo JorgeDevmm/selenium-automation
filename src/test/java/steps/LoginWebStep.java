@@ -13,24 +13,29 @@ public class LoginWebStep {
         loginPage.openUrl(url);
     }
 
-    public void inputCredentials(List<Map<String, String>> listaCredenciales) {
+//    public void inputCredentials(List<Map<String, String>> listaCredenciales) {
+//
+//        for (Map<String, String> fila : listaCredenciales) {
+//            String username = fila.get("Username");
+//            String password = fila.get("Password");
+//
+//            loginPage.typeUsername(username);
+//            loginPage.typePassword(password);
+//        }
+//
+//    }
 
-        for (Map<String, String> fila : listaCredenciales) {
-            String username = fila.get("Username");
-            String password = fila.get("Password");
-
-            loginPage.typeUsername(username);
-            loginPage.typePassword(password);
-        }
-
+    public void inputCredentials(String username, String password){
+        loginPage.typeUsername(username);
+        loginPage.typePassword(password);
     }
 
     public void clickEnBotonLogin() {
         loginPage.clickBotonLogin();
     }
 
-    public void visualizacionDelTituloDeLaPaginaPrincipal(String titulo){
-        loginPage.visualizarPaginaPrincipal(titulo);
+    public void verifyTitleOnHomePage(String title){
+        loginPage.viewHomePage(title);
     }
 
 
