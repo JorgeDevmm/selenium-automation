@@ -10,7 +10,7 @@ import pages.BasePage;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features", //Directorio de nuestros archivos .features
         glue = "stepsdefinitions",                           //Paquete donde tenemos nuestras clases definiendo los steps
-        tags = "@Login",                                       //Tag que quieres ejecutar
+        tags = "@Navigation",                                       //Tag que quieres ejecutar
         plugin = {"pretty", "html:target/cucumber-reports"})//Reportes
 
 public class Runner {
